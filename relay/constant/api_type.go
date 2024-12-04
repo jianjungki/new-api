@@ -26,6 +26,8 @@ const (
 	APITypeSiliconFlow
 	APITypeVertexAi
 	APITypeMistral
+	APITypeReplicate
+	APITypeFalAI
 
 	APITypeDummy // this one is only for count, do not add any channel after this
 )

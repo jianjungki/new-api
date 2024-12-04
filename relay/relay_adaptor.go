@@ -17,6 +17,7 @@ import (
 	"one-api/relay/channel/openai"
 	"one-api/relay/channel/palm"
 	"one-api/relay/channel/perplexity"
+	"one-api/relay/channel/replicate"
 	"one-api/relay/channel/siliconflow"
 	"one-api/relay/channel/task/suno"
 	"one-api/relay/channel/tencent"
@@ -71,6 +72,10 @@ func GetAdaptor(apiType int) channel.Adaptor {
 		return &vertex.Adaptor{}
 	case constant.APITypeMistral:
 		return &mistral.Adaptor{}
+	case constant.APITypeReplicate:
+		return &replicate.Adaptor{}
+	case constant.APITypeFalAi:
+		return &replicate.Adaptor{}
 	}
 	return nil
 }
