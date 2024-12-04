@@ -10,6 +10,7 @@ import (
 	"one-api/relay/channel/cloudflare"
 	"one-api/relay/channel/cohere"
 	"one-api/relay/channel/dify"
+	"one-api/relay/channel/falai"
 	"one-api/relay/channel/gemini"
 	"one-api/relay/channel/jina"
 	"one-api/relay/channel/mistral"
@@ -75,7 +76,7 @@ func GetAdaptor(apiType int) channel.Adaptor {
 	case constant.APITypeReplicate:
 		return &replicate.Adaptor{}
 	case constant.APITypeFalAi:
-		return &replicate.Adaptor{}
+		return &falai.Adaptor{}
 	}
 	return nil
 }

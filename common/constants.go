@@ -11,7 +11,7 @@ import (
 
 var StartTime = time.Now().Unix() // unit: second
 var Version = "v0.0.0"            // this hard coding will be replaced automatically when building, no need to manually change
-var SystemName = "New API"
+var SystemName = "AiCloud API"
 var Footer = ""
 var Logo = ""
 var TopUpLink = ""
@@ -230,6 +230,9 @@ const (
 	ChannelTypeVertexAi       = 41
 	ChannelTypeMistral        = 42
 
+	ChannelTypeReplicate = 43
+	ChannelTypeFalAi     = 44
+
 	ChannelTypeDummy // this one is only for count, do not add any channel after this
 
 )
@@ -254,7 +257,7 @@ var ChannelBaseURLs = []string{
 	"https://open.bigmodel.cn",            // 16
 	"https://dashscope.aliyuncs.com",      // 17
 	"",                                    // 18
-	"https://api.360.cn",                   // 19
+	"https://api.360.cn",                  // 19
 	"https://openrouter.ai/api",           // 20
 	"https://api.aiproxy.io",              // 21
 	"https://fastgpt.run/api/openapi",     // 22
@@ -278,4 +281,8 @@ var ChannelBaseURLs = []string{
 	"https://api.siliconflow.cn",                //40
 	"",                                          //41
 	"https://api.mistral.ai",                    //42
+
+	"https://api.replicate.com", //43
+	"https://queue.fal.run",     //44
+
 }
