@@ -3,13 +3,15 @@ package channel
 import (
 	"errors"
 	"fmt"
-	"github.com/gin-gonic/gin"
-	"github.com/gorilla/websocket"
 	"io"
 	"net/http"
+	apiCommon "one-api/common"
 	"one-api/relay/common"
 	"one-api/relay/constant"
 	"one-api/service"
+
+	"github.com/gin-gonic/gin"
+	"github.com/gorilla/websocket"
 )
 
 func SetupApiRequestHeader(info *common.RelayInfo, c *gin.Context, req *http.Header) {
@@ -28,6 +30,7 @@ func SetupApiRequestHeader(info *common.RelayInfo, c *gin.Context, req *http.Hea
 
 func DoApiRequest(a Adaptor, c *gin.Context, info *common.RelayInfo, requestBody io.Reader) (*http.Response, error) {
 	fullRequestURL, err := a.GetRequestURL(info)
+	apiCommon.SysLog(fmt.Sprintf("channelName: %s fullRuestUrl: %s", a.GetChannelName(), fullRequestURL))
 	if err != nil {
 		return nil, fmt.Errorf("get request url failed: %w", err)
 	}

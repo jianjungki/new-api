@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/bytedance/gopkg/util/gopool"
 	"io"
 	"math"
 	"net/http"
@@ -23,6 +22,8 @@ import (
 	"strings"
 	"sync"
 	"time"
+
+	"github.com/bytedance/gopkg/util/gopool"
 
 	"github.com/gin-gonic/gin"
 )
@@ -87,6 +88,7 @@ func testChannel(channel *model.Channel, testModel string) (err error, openAIErr
 	common.SysLog(fmt.Sprintf("testing channel %d with model %s", channel.Id, testModel))
 
 	adaptor.Init(meta)
+	common.SysLog(fmt.Sprintf("channel name: %s", adaptor.GetChannelName()))
 
 	convertedRequest, err := adaptor.ConvertRequest(c, meta, request)
 	if err != nil {
@@ -96,6 +98,7 @@ func testChannel(channel *model.Channel, testModel string) (err error, openAIErr
 	if err != nil {
 		return err, nil
 	}
+	common.SysLog(fmt.Sprintf("jsonData: %s", jsonData))
 	requestBody := bytes.NewBuffer(jsonData)
 	c.Request.Body = io.NopCloser(requestBody)
 	resp, err := adaptor.DoRequest(c, meta, requestBody)

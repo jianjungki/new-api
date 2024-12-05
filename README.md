@@ -66,6 +66,10 @@
 
 您可以在渠道中添加自定义模型gpt-4-gizmo-*，此模型并非OpenAI官方模型，而是第三方模型，使用官方key无法调用。
 
+## 新增渠道支持
+1. Replicate
+2. Fal.ai
+
 ## 比原版One API多出的配置
 - `GENERATE_DEFAULT_TOKEN`：是否为新注册用户生成初始令牌，默认为 `false`。
 - `STREAMING_TIMEOUT`：设置流式一次回复的超时时间，默认为 60 秒。

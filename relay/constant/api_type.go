@@ -77,6 +77,10 @@ func ChannelType2APIType(channelType int) (int, bool) {
 		apiType = APITypeVertexAi
 	case common.ChannelTypeMistral:
 		apiType = APITypeMistral
+	case common.ChannelTypeReplicate:
+		apiType = APITypeReplicate
+	case common.ChannelTypeFalAi:
+		apiType = APITypeFalAi
 	}
 	if apiType == -1 {
 		return APITypeOpenAI, false

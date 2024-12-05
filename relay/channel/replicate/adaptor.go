@@ -10,6 +10,7 @@ import (
 	"one-api/relay/channel"
 	"one-api/relay/channel/openai"
 	relaycommon "one-api/relay/common"
+	"one-api/relay/constant"
 
 	"github.com/gin-gonic/gin"
 )
@@ -56,10 +57,14 @@ func (a *Adaptor) ConvertRequest(c *gin.Context, info *relaycommon.RelayInfo, re
 	if request == nil {
 		return nil, errors.New("request is nil")
 	}
-	if request.TopP >= 1 {
-		request.TopP = 0.99
+	switch info.RelayMode {
+	case constant.RelayModeEmbeddings:
+		baiduEmbeddingRequest := embeddingRequestOpenAI2Baidu(*request)
+		return baiduEmbeddingRequest, nil
+	default:
+		baiduRequest := requestOpenAI2Baidu(*request)
+		return baiduRequest, nil
 	}
-	return nil, nil
 }
 
 func (a *Adaptor) ConvertRerankRequest(c *gin.Context, relayMode int, request dto.RerankRequest) (any, error) {
