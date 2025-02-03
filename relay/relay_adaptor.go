@@ -11,6 +11,7 @@ import (
 	"one-api/relay/channel/cohere"
 	"one-api/relay/channel/deepseek"
 	"one-api/relay/channel/dify"
+	"one-api/relay/channel/falai"
 	"one-api/relay/channel/gemini"
 	"one-api/relay/channel/jina"
 	"one-api/relay/channel/mistral"
@@ -18,6 +19,7 @@ import (
 	"one-api/relay/channel/openai"
 	"one-api/relay/channel/palm"
 	"one-api/relay/channel/perplexity"
+	"one-api/relay/channel/replicate"
 	"one-api/relay/channel/siliconflow"
 	"one-api/relay/channel/task/suno"
 	"one-api/relay/channel/tencent"
@@ -74,6 +76,10 @@ func GetAdaptor(apiType int) channel.Adaptor {
 		return &mistral.Adaptor{}
 	case constant.APITypeDeepSeek:
 		return &deepseek.Adaptor{}
+	case constant.APITypeReplicate:
+		return &replicate.Adaptor{}
+	case constant.APITypeFalAi:
+		return &falai.Adaptor{}
 	}
 	return nil
 }

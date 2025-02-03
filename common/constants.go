@@ -11,7 +11,7 @@ import (
 
 var StartTime = time.Now().Unix() // unit: second
 var Version = "v0.0.0"            // this hard coding will be replaced automatically when building, no need to manually change
-var SystemName = "New API"
+var SystemName = "AiCloud API"
 var Footer = ""
 var Logo = ""
 var TopUpLink = ""
@@ -232,6 +232,9 @@ const (
 	ChannelTypeMistral        = 42
 	ChannelTypeDeepSeek       = 43
 
+	ChannelTypeReplicate = 43
+	ChannelTypeFalAi     = 44
+
 	ChannelTypeDummy // this one is only for count, do not add any channel after this
 
 )
@@ -281,4 +284,7 @@ var ChannelBaseURLs = []string{
 	"",                                          //41
 	"https://api.mistral.ai",                    //42
 	"https://api.deepseek.com",                  //43
+
+	"https://api.replicate.com", //52
+	"https://queue.fal.run",     //53
 }
