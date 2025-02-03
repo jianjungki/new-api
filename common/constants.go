@@ -30,6 +30,7 @@ var DefaultCollapseSidebar = false // default value of collapse sidebar
 // Any options with "Secret", "Token" in its key won't be return by GetOptions
 
 var SessionSecret = uuid.New().String()
+var CryptoSecret = uuid.New().String()
 
 var OptionMap map[string]string
 var OptionMapRWMutex sync.RWMutex
@@ -229,6 +230,7 @@ const (
 	ChannelTypeSiliconFlow    = 40
 	ChannelTypeVertexAi       = 41
 	ChannelTypeMistral        = 42
+	ChannelTypeDeepSeek       = 43
 
 	ChannelTypeReplicate = 43
 	ChannelTypeFalAi     = 44
@@ -281,8 +283,8 @@ var ChannelBaseURLs = []string{
 	"https://api.siliconflow.cn",                //40
 	"",                                          //41
 	"https://api.mistral.ai",                    //42
+	"https://api.deepseek.com",                  //43
 
-	"https://api.replicate.com", //43
-	"https://queue.fal.run",     //44
-
+	"https://api.replicate.com", //52
+	"https://queue.fal.run",     //53
 }

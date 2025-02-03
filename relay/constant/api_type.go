@@ -26,6 +26,7 @@ const (
 	APITypeSiliconFlow
 	APITypeVertexAi
 	APITypeMistral
+	APITypeDeepSeek
 	APITypeReplicate
 	APITypeFalAi
 
@@ -77,6 +78,8 @@ func ChannelType2APIType(channelType int) (int, bool) {
 		apiType = APITypeVertexAi
 	case common.ChannelTypeMistral:
 		apiType = APITypeMistral
+	case common.ChannelTypeDeepSeek:
+		apiType = APITypeDeepSeek
 	case common.ChannelTypeReplicate:
 		apiType = APITypeReplicate
 	case common.ChannelTypeFalAi:
